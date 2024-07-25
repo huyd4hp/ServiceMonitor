@@ -1,15 +1,10 @@
 scrape_configs:
-  - job_name: Cadvisor
-    scrape_interval: 5s
-    static_configs:
-      - targets:
-          - cadvisor:8080
   - job_name: "AuthService-Nginx"
     static_configs:
-      - targets: ["nginx.event:80"]
+      - targets: ["nginx.auth:80"]
   - job_name: "AuthService-Master"
     static_configs:
-      - targets: ["api.auth:7000"]
+      - targets: ["api.auth:8000"]
   - job_name: "AuthService-Slave-1"
     static_configs:
       - targets: ["sub.api.auth:8080"]
